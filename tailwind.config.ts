@@ -11,8 +11,13 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "#222222",
+        "primary-hover": "#111111",
+        "primary-light": "#eeeeee",
+        "primary-light-hover": "#dddddd",
       },
     },
+    screens: { xs: "550px", sm: "640px", md: "768px" },
   },
   plugins: [],
 };
