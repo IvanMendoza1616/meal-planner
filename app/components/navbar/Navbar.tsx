@@ -1,7 +1,7 @@
 import { auth } from "@/auth";
-import SignInGoogle from "./SignInGoogle";
 import SignOut from "./SignOut";
 import Link from "next/link";
+import Button from "../UI/Button";
 
 export default async function Navbar() {
   const session = await auth();
@@ -13,7 +13,9 @@ export default async function Navbar() {
           <Link href="/profile/info">Profile</Link>
         </div>
         {!session ? (
-          <SignInGoogle />
+          <Link href="/sign-in">
+            <Button type="button">Inicia Sesión</Button>
+          </Link>
         ) : (
           <div className="flex gap-4 items-center">
             <SignOut />

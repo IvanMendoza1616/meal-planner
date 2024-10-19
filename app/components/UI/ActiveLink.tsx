@@ -10,7 +10,7 @@ type Props = {
 
 export default function ActiveLink({ href, children }: Props) {
   const pathname = usePathname();
-  const isActive = href === pathname;
+  const isActive = pathname.includes(href);
 
   return (
     <Link

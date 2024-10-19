@@ -1,15 +1,16 @@
 import { ChangeEvent, RefObject } from "react";
 
 type Props = {
-  label: string;
-  placeholder: string;
+  label?: string;
+  placeholder?: string;
   name: string;
   id: string;
   className?: string;
   value?: string;
   defaultValue?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  inputRef: RefObject<HTMLInputElement>;
+  type?: string;
+  inputRef?: RefObject<HTMLInputElement>;
   required?: boolean;
 };
 
@@ -22,17 +23,20 @@ export default function TextInput({
   value,
   defaultValue,
   onChange,
+  type = "text",
   inputRef,
   required,
 }: Props) {
   return (
     <div className={`flex flex-col gap-1 ${className}`}>
-      <label className="font-semibold" htmlFor={id}>
-        {label}
-      </label>
+      {label && (
+        <label className="font-semibold" htmlFor={id}>
+          {label}
+        </label>
+      )}
       <input
         placeholder={placeholder}
-        type="text"
+        type={type}
         name={name}
         id={id}
         className="w-full rounded-md border px-3 py-2 focus:outline-primary"

@@ -1,5 +1,5 @@
-"use client";
-import TextInput from "../../UI/inputs/TextInput";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FormEvent, useRef, useState } from "react";
 import { QueryParams } from "@/app/types/QueryParams";
 
@@ -19,19 +19,32 @@ export default function SearchRecipe({ queryParams, setQueryParams }: Props) {
   };
 
   return (
-    <form className="flex gap-4 items-center mb-4" onSubmit={handleSubmit}>
-      <p>Search:</p>
-      <TextInput
-        label=""
-        placeholder="Add a recipe name"
+    <form
+      className="flex items-center w-full rounded-md border overflow-hidden focus-within:outline focus-within:outline-primary"
+      onSubmit={handleSubmit}
+    >
+      <FontAwesomeIcon className="w-4 h-4 mx-4 text-gray-400" icon={faSearch} />
+      <input
+        placeholder="Buscar recetas..."
         name="search"
         id="search"
-        inputRef={inputRef}
+        className="pr-2 py-2 w-full focus:outline-none"
+        ref={inputRef}
         value={search}
         onChange={(e) => {
           setSearch(e.target.value);
         }}
       />
+      {search && (
+        <FontAwesomeIcon
+          className="w-4 h-4 mx-4 text-gray-400"
+          icon={faXmark}
+          onClick={() => {
+            setSearch("");
+            setQueryParams({ search: "", page: "" });
+          }}
+        />
+      )}
     </form>
   );
 }

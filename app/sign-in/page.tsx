@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 export const metadata: Metadata = {
-  title: "Sign In",
-  description: "Sign in to Meal Planner.",
+  title: "Inicia sesión",
+  description: "Inicia sesión en Meal Planner.",
 };
 
 export default async function Page({
@@ -21,8 +21,8 @@ export default async function Page({
     <main className="px-4">
       <section className="mx-auto flex w-full max-w-[400px] flex-col items-center gap-12 rounded-lg border p-6 shadow-md">
         <div className="flex flex-col items-center gap-2">
-          <h2 className="text-2xl font-bold">Sign in</h2>
-          <p>Choose your preferred sign in method</p>
+          <h2 className="text-2xl font-bold">Inicia sesión</h2>
+          <p>Elige tu método favorito para iniciar sesión</p>
         </div>
         <div className="flex w-full flex-col gap-4">
           <form
@@ -39,7 +39,7 @@ export default async function Page({
                 className="h-4 w-4 text-primary"
                 icon={faGoogle}
               />
-              Sign In with Google
+              Inicia Sesión con Google
             </button>
           </form>
         </div>

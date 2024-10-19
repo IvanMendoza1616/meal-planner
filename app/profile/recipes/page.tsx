@@ -1,11 +1,10 @@
 import ProfileContainer from "@/app/components/profile/ProfileContainer";
 import MyRecipes from "@/app/components/profile/recipes/MyRecipes";
+import Link from "next/link";
+
 //import client from "@/app/lib/db";
-import getSession from "@/app/utils/getSession";
 
 export default async function Page() {
-  const session = await getSession("/profile/recipes");
-
   /*
   client
     .db("mealPlanner")
@@ -16,9 +15,18 @@ export default async function Page() {
   return (
     <ProfileContainer>
       <div className="mb-12">
-        <h1 className="text-2xl font-semibold">My Recipes</h1>
-        <p className="text-gray-500">View and edit your recipes</p>
+        <h1 className="text-2xl font-semibold">Mis Recetas</h1>
+        <p className="text-gray-500">Crea y edita tus recetas</p>
       </div>
+      <div className="mb-4 flex items-center justify-start">
+        <Link
+          href="/profile/recipes/create-recipe"
+          className="rounded-md bg-black px-4 py-2 text-white"
+        >
+          + Crear receta
+        </Link>
+      </div>
+
       <MyRecipes />
     </ProfileContainer>
   );

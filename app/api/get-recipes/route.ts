@@ -7,7 +7,7 @@ import getPipeline from "@/app/utils/getRecipes/getPipeline";
 import { auth } from "@/auth";
 
 export async function GET(request: NextRequest) {
-  const pageSize = 1;
+  const pageSize = 12;
   const searchParams = request.nextUrl.searchParams;
 
   const session = await auth();

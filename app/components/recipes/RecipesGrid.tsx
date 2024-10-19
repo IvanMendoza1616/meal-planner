@@ -5,6 +5,8 @@ import { RecipesResponse } from "@/app/types/RecipesResponse";
 import axios from "axios";
 import getQueryString from "@/app/utils/queryParams/getQueryString";
 import Pagination from "../UI/Pagination";
+import RecipesNotFoundMessage from "./RecipesNotFoundMessage";
+import RecipesResultMessage from "./RecipesResultMessage";
 
 type Props = {
   queryParams: QueryParams;
@@ -46,29 +48,39 @@ export default function RecipesGrid({ queryParams, setQueryParams }: Props) {
   if (isLoading)
     return (
       <div className="flex h-[300px] items-center justify-center rounded-md border p-4">
-        Loading...
+        Cargando...
       </div>
     );
 
   if (!dataFetched.success && !isLoading)
     return (
       <div className="flex h-[300px] items-center justify-center rounded-md border p-4">
-        There was an error fetching the recipes.
+        Hubo un error al buscar las recetas.
       </div>
     );
 
   if (dataFetched.pagination.totalCount === 0)
     return (
       <div className="flex h-[300px] items-center justify-center rounded-md border p-4">
-        No recipes found.
+        <RecipesNotFoundMessage
+          search={queryParams.search}
+          category={queryParams.category}
+        />
       </div>
     );
 
   return (
     <>
+      <RecipesResultMessage
+        currentPage={dataFetched.pagination.currentPage}
+        pageSize={dataFetched.pagination.pageSize}
+        totalCount={dataFetched.pagination.totalCount}
+        search={queryParams.search}
+        category={queryParams.category}
+      />
       <div className="grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-8">
         {dataFetched.data.map((recipe) => (
-          <RecipeCard key={recipe._id} recipe={recipe} />
+          <RecipeCard key={recipe._id.toString()} recipe={recipe} />
         ))}
       </div>
       <Pagination

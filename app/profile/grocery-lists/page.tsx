@@ -1,8 +1,6 @@
 import ProfileContainer from "@/app/components/profile/ProfileContainer";
-import getSession from "@/app/utils/getSession";
 
 export default async function Page() {
-  const session = await getSession("/profile/grocery-lists");
   return (
     <ProfileContainer>
       <div className="mb-12">

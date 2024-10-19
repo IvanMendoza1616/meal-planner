@@ -1,7 +1,7 @@
 "use client";
 import { useQueryParams } from "@/app/hooks/useQueryParams";
 import RecipesGrid from "../../recipes/RecipesGrid";
-import SearchRecipe from "./SearchRecipe";
+import Controls from "./controls/Controls";
 
 /*
 const recipes = [
@@ -79,7 +79,7 @@ export default function MyRecipes() {
   const { queryParams, setQueryParams } = useQueryParams();
   return (
     <>
-      <SearchRecipe queryParams={queryParams} setQueryParams={setQueryParams} />
+      <Controls queryParams={queryParams} setQueryParams={setQueryParams} />
       <RecipesGrid queryParams={queryParams} setQueryParams={setQueryParams} />
     </>
   );

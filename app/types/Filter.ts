@@ -1,4 +1,4 @@
 export interface Filter {
-  user: string;
+  user?: string;
   category?: string;
 }

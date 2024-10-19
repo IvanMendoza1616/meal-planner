@@ -1,8 +1,8 @@
 "use client";
 import { useFormState } from "react-dom";
-import TextInput from "../../UI/inputs/TextInput";
-import FormMessage from "../../UI/FormMessage";
-import SubmitButton from "../../UI/SubmitButton";
+import TextInput from "../UI/inputs/TextInput";
+import FormMessage from "../UI/FormMessage";
+import SubmitButton from "../UI/SubmitButton";
 import { updateUserAction } from "@/app/actions/updateUserAction";
 
 type Props = {
@@ -23,12 +23,11 @@ export default function ProfileForm({ sessionUser }: Props) {
   return (
     <form action={formAction} className="flex flex-col gap-4">
       <div className="flex flex-col gap-1">
-        <p className="font-semibold">Email</p>
+        <p className="font-semibold">Correo</p>
         <p>{sessionUser.email}</p>
       </div>
       <TextInput
-        label="Name"
-        placeholder="John Doe"
+        label="Nombre"
         name="name"
         id={"name"}
         defaultValue={sessionUser.name}
@@ -36,7 +35,7 @@ export default function ProfileForm({ sessionUser }: Props) {
       />
       <div className="mt-8 flex flex-col gap-4">
         <FormMessage message={state.message} success={state.success} />
-        <SubmitButton>Update</SubmitButton>
+        <SubmitButton>Actualizar</SubmitButton>
       </div>
     </form>
   );

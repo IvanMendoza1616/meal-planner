@@ -7,6 +7,10 @@ export default function getSort(queryParams: QueryParams) {
   if (queryParams.sort) {
     if (queryParams.sort === "newest") sort.createdAt = -1;
     else if (queryParams.sort === "oldest") sort.createdAt = 1;
+    else if (queryParams.sort === "preparation-minutes-ascending")
+      sort.preparationMinutes = 1;
+    else if (queryParams.sort === "preparation-minutes-descending")
+      sort.preparationMinutes = -1;
     else sort.createdAt = -1;
   } else {
     sort.createdAt = -1;

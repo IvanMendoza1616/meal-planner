@@ -1,12 +1,14 @@
-import { ChangeEvent, ReactNode } from "react";
+import { ChangeEvent, ReactNode, RefObject } from "react";
 
 type Props = {
   label?: string;
   name: string;
   id: string;
+  value?: string;
   defaultValue?: string;
   className?: string;
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
+  inputRef?: RefObject<HTMLSelectElement>;
   children: ReactNode;
   required?: boolean;
 };
@@ -15,9 +17,11 @@ export default function Select({
   label,
   name,
   id,
+  value,
   defaultValue,
   className,
   onChange,
+  inputRef,
   children,
   required,
 }: Props) {
@@ -32,6 +36,8 @@ export default function Select({
       <select
         name={name}
         id={id}
+        ref={inputRef}
+        value={value}
         defaultValue={defaultValue}
         className="rounded-md border px-3 py-2"
         onChange={onChange}

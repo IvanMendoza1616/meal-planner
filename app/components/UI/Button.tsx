@@ -16,12 +16,12 @@ export default function Button({
 }: Props) {
   const style =
     variant === "secondary"
-      ? "bg-primary-light hover:bg-primary-light-hover"
-      : `self-start rounded-lg shadow-md bg-primary hover:bg-primary-hover text-white`;
+      ? "bg-white border hover:bg-primary-light-hover"
+      : `rounded-lg shadow-md bg-primary hover:bg-primary-hover text-white`;
 
   return (
     <button
-      className={`flex items-center py-2 justify-center gap-2 rounded-md px-4 transition ease-in-out ${style}`}
+      className={`flex items-center justify-center gap-2 text-nowrap rounded-md px-4 py-2 transition ease-in-out ${style}`}
       type={type}
       onClick={onClick}
       disabled={disabled}
