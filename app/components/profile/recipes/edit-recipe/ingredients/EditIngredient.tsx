@@ -138,14 +138,14 @@ export default function EditIngredient({
           type="button"
           onClick={handleCancelEdit}
         >
-          <XMarkIcon className="h-4 w-4 stroke-2" />
+          <XMarkIcon className="h-4 w-4" />
         </button>
         <button
           className="flex items-center justify-center rounded-md bg-primary p-3 text-white"
           type="button"
           onClick={handleEditIngredient}
         >
-          <CheckIcon className="h-4 w-4 stroke-2" />
+          <CheckIcon className="h-4 w-4" />
         </button>
       </div>
     </div>

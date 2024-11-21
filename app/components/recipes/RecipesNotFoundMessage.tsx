@@ -1,5 +1,3 @@
-import capitalizeFirstLetter from "@/app/utils/capitalizeFirsLetter";
-
 type Props = {
   search: string | null;
   category: string | null;
@@ -18,8 +16,7 @@ export default function RecipesNotFoundMessage({ search, category }: Props) {
       {category && (
         <span>
           {" "}
-          en la categoría{" "}
-          <span className="font-bold">{capitalizeFirstLetter(category)}</span>
+          en la categoría <span className="font-bold">{category}</span>
         </span>
       )}
     </p>

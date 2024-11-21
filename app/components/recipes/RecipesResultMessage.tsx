@@ -1,5 +1,3 @@
-import capitalizeFirstLetter from "@/app/utils/capitalizeFirsLetter";
-
 type Props = {
   currentPage: number;
   pageSize: number;
@@ -33,8 +31,7 @@ export default function RecipesResultMessage({
         {category && (
           <span>
             {" "}
-            en la categoría{" "}
-            <span className="font-bold">{capitalizeFirstLetter(category)}</span>
+            en la categoría <span className="font-bold">{category}</span>
           </span>
         )}
       </p>

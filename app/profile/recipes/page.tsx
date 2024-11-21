@@ -26,7 +26,6 @@ export default async function Page() {
           + Crear receta
         </Link>
       </div>
-
       <MyRecipes />
     </ProfileContainer>
   );

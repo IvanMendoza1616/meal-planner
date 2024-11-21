@@ -1,5 +1,5 @@
 import { Ingredient } from "@/app/types/Recipe";
-import convertToNumber from "@/app/utils/convertToNumber";
+import { addPlural } from "@/app/utils/textManipulation/addPlural";
 import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Dispatch, SetStateAction } from "react";
@@ -22,7 +22,7 @@ export default function IngredientElement({
     >
       <span className="flex items-center gap-1 py-4">
         {ingredient.name} - {ingredient.quantity} {ingredient.unit}
-        {convertToNumber(ingredient.quantity) > 1 && "s"}
+        {addPlural(ingredient.quantity)}
       </span>
       <div className="flex items-center gap-4">
         <button

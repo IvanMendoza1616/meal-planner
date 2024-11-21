@@ -6,6 +6,8 @@ export type Ingredient = {
   quantity: string;
   category: string;
   id: number;
+  units: string[];
+  conversionValues: Record<string, number>;
 };
 
 export type Recipe = {

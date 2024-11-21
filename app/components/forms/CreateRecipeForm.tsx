@@ -6,7 +6,9 @@ import SelectInput from "@/app/components/UI/inputs/SelectInput";
 import TextAreaInput from "@/app/components/UI/inputs/TextAreaInput";
 import TextInput from "@/app/components/UI/inputs/TextInput";
 import { IngredientOption } from "@/app/types/IngredientOption";
+import { categories } from "@/app/types/MealCategory";
 import { Ingredient } from "@/app/types/Recipe";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 type Props = {
@@ -16,11 +18,13 @@ type Props = {
 
 export default function CreateRecipeForm({ user, ingredientOptions }: Props) {
   const [ingredients, setIngredients] = useState<Ingredient[]>([]);
+  const router = useRouter();
 
   return (
     <form
-      action={(formData) => {
-        createRecipe(formData, user, ingredients);
+      action={async (formData) => {
+        await createRecipe(formData, user, ingredients);
+        router.push("/profile/recipes");
       }}
       className="mb-6 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2 md:grid-cols-3"
     >
@@ -47,11 +51,11 @@ export default function CreateRecipeForm({ user, ingredientOptions }: Props) {
           required
         >
           <option value=""></option>
-          <option value="desayuno">Desayuno</option>
-          <option value="comida">Comida</option>
-          <option value="cena">Cena</option>
-          <option value="postre">Postre</option>
-          <option value="bebida">Bebida</option>
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
         </SelectInput>
         <div className="grid grid-cols-2 items-end gap-x-6">
           <TextInput

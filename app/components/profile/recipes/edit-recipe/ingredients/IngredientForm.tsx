@@ -25,6 +25,7 @@ const emptyIngredientOption = {
   name: "",
   category: "",
   units: [],
+  conversionValues: {},
 };
 
 export default function EditIngredient({
@@ -62,6 +63,8 @@ export default function EditIngredient({
       quantity,
       unit,
       category: selectedIngredientOption.category,
+      units: selectedIngredientOption.units,
+      conversionValues: selectedIngredientOption.conversionValues,
     };
 
     //If editing ingredient

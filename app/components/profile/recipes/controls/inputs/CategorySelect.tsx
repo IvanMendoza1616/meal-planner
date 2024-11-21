@@ -1,4 +1,5 @@
 import SelectInput from "@/app/components/UI/inputs/SelectInput";
+import { categories } from "@/app/types/MealCategory";
 import { QueryParams } from "@/app/types/QueryParams";
 
 type Props = {
@@ -18,11 +19,11 @@ export default function CategoryFilter({ queryParams, setQueryParams }: Props) {
       }}
     >
       <option value="">Todas las categorías</option>
-      <option value="desayuno">Desayuno</option>
-      <option value="comida">Comida</option>
-      <option value="cena">Cena</option>
-      <option value="postre">Postre</option>
-      <option value="bebida">Bebida</option>
+      {categories.map((category) => (
+        <option key={category} value={category}>
+          {category}
+        </option>
+      ))}
     </SelectInput>
   );
 }

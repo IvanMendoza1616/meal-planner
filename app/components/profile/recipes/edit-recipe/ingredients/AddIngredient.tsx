@@ -57,6 +57,8 @@ export default function AddIngredient({
         quantity,
         unit,
         category: selectedIngredient.category,
+        units: selectedIngredient.units,
+        conversionValues: selectedIngredient.conversionValues,
         id: ingredientId,
       },
     ]);
@@ -66,6 +68,8 @@ export default function AddIngredient({
         quantity,
         unit,
         category: selectedIngredient.category,
+        units: selectedIngredient.units,
+        conversionValues: selectedIngredient.conversionValues,
         id: ingredientId,
       });
     }

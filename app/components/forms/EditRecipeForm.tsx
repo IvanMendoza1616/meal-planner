@@ -7,6 +7,7 @@ import { useState } from "react";
 import EditRecipeInput from "./editRecipe/EditRecipeInput";
 import { updateRecipeField } from "@/app/actions/updateRecipeField";
 import { IngredientOption } from "@/app/types/IngredientOption";
+import { categories } from "@/app/types/MealCategory";
 
 type Props = {
   recipe: Recipe;
@@ -60,11 +61,11 @@ export default function EditRecipeForm({ recipe, ingredientOptions }: Props) {
           <option value="" disabled>
             Selecciona una categoría
           </option>
-          <option value="desayuno">Desayuno</option>
-          <option value="comida">Comida</option>
-          <option value="cena">Cena</option>
-          <option value="postre">Postre</option>
-          <option value="bebida">Bebida</option>
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
         </SelectInput>
         <div className="grid grid-cols-1 items-end gap-6 md:grid-cols-2">
           <EditRecipeInput

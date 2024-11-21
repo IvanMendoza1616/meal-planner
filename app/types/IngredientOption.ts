@@ -5,4 +5,5 @@ export type IngredientOption = {
   name: string;
   category: string;
   units: string[];
+  conversionValues: Record<string, number>;
 };
